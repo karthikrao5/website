@@ -32,3 +32,22 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Deploy from Docker
+
+1. docker download node:alpine and push to ECR if doesn't exist
+```aidl
+aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 227046024389.dkr.ecr.us-east-1.amazonaws.com
+
+//get image id for one you want to push
+docker images
+
+docker tag $image-hash 227046024389.dkr.ecr.us-east-1.amazonaws.com/node:alpine
+
+docker push 227046024389.dkr.ecr.us-east-1.amazonaws.com/node:alpine
+```
+
+2. build app
+```aidl
+docker build -t 227046024389.dkr.ecr.us-east-1.amazonaws.com/web:latest .
+```
