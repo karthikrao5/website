@@ -3,14 +3,14 @@ version: 0.2
 phases:
   pre_build:
     commands:
-      - REPOSITORY_URI=877638373584.dkr.ecr.us-east-1.amazonaws.com/fr-ui
+      - REPOSITORY_URI=877638373584.dkr.ecr.us-east-1.amazonaws.com/web
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - IMAGE_TAG=${COMMIT_HASH:=latest}
       - chmod +x build-scripts/pre-build.sh
       - ./build-scripts/pre-build.sh
   build:
     commands:
-      - REPOSITORY_URI=877638373584.dkr.ecr.us-east-1.amazonaws.com/fr-ui
+      - REPOSITORY_URI=877638373584.dkr.ecr.us-east-1.amazonaws.com/web
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - IMAGE_TAG=${COMMIT_HASH:=latest}
       - echo Build started on `date`
@@ -19,7 +19,7 @@ phases:
   post_build:
     commands:
       - echo Build completed on `date`
-      - REPOSITORY_URI=877638373584.dkr.ecr.us-east-1.amazonaws.com/fr-ui
+      - REPOSITORY_URI=877638373584.dkr.ecr.us-east-1.amazonaws.com/web
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - IMAGE_TAG=${COMMIT_HASH:=latest}
       - chmod +x build-scripts/post-build.sh
