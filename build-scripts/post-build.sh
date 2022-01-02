@@ -12,7 +12,7 @@ cat >Dockerrun.aws.json <<EOL
     "Update": "true"
   },
   "Ports": [{
-    "ContainerPort": 80,
+    "ContainerPort": 3000,
     "HostPort": 80
   }]
 }
