@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "author": "Karthik Rao",
+        "content": "First post data"
+    },
+    {
+        "id": 2,
+        "author": "Karthik Rao",
+        "content": "second post data"
+    },
+    {
+        "id": 3,
+        "author": "Karthik Rao",
+        "content": "third post data"
+    }
+]
