@@ -1,24 +1,22 @@
 import Head from "next/head";
 import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
-
+import SiteConfig from "../data/config.json";
 interface LayoutProps {
   children: React.ReactNode;
+  siteTitle?: string;
 }
 
-const Layout = ({ children }: LayoutProps) => {
+export default function Layout({ children, siteTitle }: LayoutProps) {
   return (
     <div>
       <Head>
-        <title>Karthik Rao</title>
-        <meta name="description" content="Karthik's website" />
+        <title>{siteTitle ? siteTitle : SiteConfig.title}</title>
+        <meta name="description" content={SiteConfig.description} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Navbar />
       <main>{children}</main>
       <Footer />
     </div>
   );
-};
-
-export default Layout;
+}
